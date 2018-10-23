@@ -547,11 +547,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 \*----------------------*/
 
 uint32_t layer_state_set_user(uint32_t state) {
-
-    state = layer_state_set_keymap (state);
 #ifdef RGBLIGHT_ENABLE
     // Change RGB lighting depending on the last layer activated
     rgblight_change( biton32(state) );
 #endif
+    state = layer_state_set_keymap (state);
+
     return state;
 }
